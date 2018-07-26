@@ -1,6 +1,6 @@
 {
   "name": "moleculer",
-  "version": "0.13.1",
+  "version": "0.13.1-DriveNow-RedisSentinel-1",
   "description": "Fast & powerful microservices framework for Node.JS",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,9 @@
     "pubsub",
     "scalable"
   ],
+  "publishConfig": {
+    "registry": "https://nexus.drivenow.com.au/repository/npm-private/"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/moleculerjs/moleculer.git"
