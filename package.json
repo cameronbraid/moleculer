@@ -1,6 +1,6 @@
 {
   "name": "moleculer",
-  "version": "0.13.1-DriveNow-RedisSentinel-1",
+  "version": "0.13.1-DriveNow-RedisSentinel-3",
   "description": "Fast & powerful microservices framework for Node.JS",
   "main": "index.js",
   "scripts": {

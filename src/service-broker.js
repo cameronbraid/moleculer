@@ -222,19 +222,21 @@ class ServiceBroker {
 			if (_.isFunction(this.options.created))
 				this.options.created(this);
 
-			// Graceful exit
-			this._closeFn = () => {
-				/* istanbul ignore next */
-				this.stop()
-					.catch(err => this.logger.error(err))
-					.then(() => process.exit(0));
-			};
+			if (this.options.gracefulShutdown != false) {
+				// Graceful exit
+				this._closeFn = () => {
+					/* istanbul ignore next */
+					this.stop()
+						.catch(err => this.logger.error(err))
+						.then(() => process.exit(0));
+				};
 
-			process.setMaxListeners(0);
-			process.on("beforeExit", this._closeFn);
-			process.on("exit", this._closeFn);
-			process.on("SIGINT", this._closeFn);
-			process.on("SIGTERM", this._closeFn);
+				process.setMaxListeners(0);
+				process.on("beforeExit", this._closeFn);
+				process.on("exit", this._closeFn);
+				process.on("SIGINT", this._closeFn);
+				process.on("SIGTERM", this._closeFn);
+			}
 		} catch(err) {
 			if (this.logger)
 				this.fatal("Unable to create ServiceBroker.", err, true);

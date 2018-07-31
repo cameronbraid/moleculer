@@ -271,6 +271,8 @@ declare namespace Moleculer {
 		created?: (broker: ServiceBroker) => void;
 		started?: (broker: ServiceBroker) => void;
 		stopped?: (broker: ServiceBroker) => void;
+
+		gracefulShutdown ?: boolean;
 	}
 
 	interface NodeHealthStatus {
